@@ -33,16 +33,21 @@
         view.top = 10;
         view.height = self.height - 10;
         
-        UIButton *btn = view.subviews.firstObject;
-        [btn setBackgroundColor:[UIColor orangeColor]];
-        
-        [btn setTitle:nil forState:UIControlStateNormal];
-        
-        UIImage *img = [image_name(@"del") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [btn setImage:img forState:UIControlStateNormal];
-        [btn setImage:img forState:UIControlStateHighlighted];
-        
-        [btn setTintColor:[UIColor whiteColor]];
+        for (UIButton *btn in view.subviews) {
+            
+            if ([btn isKindOfClass:[UIButton class]]) {
+                
+                [btn setBackgroundColor:[UIColor orangeColor]];
+                
+                [btn setTitle:nil forState:UIControlStateNormal];
+                
+                UIImage *img = [image_name(@"del") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                [btn setImage:img forState:UIControlStateNormal];
+                [btn setImage:img forState:UIControlStateHighlighted];
+                
+                [btn setTintColor:[UIColor whiteColor]];
+            }
+        }
     }
 }
 
